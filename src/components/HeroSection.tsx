@@ -3,21 +3,23 @@ import pdTitle from "@/assets/Pop_Disrupt_title.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden px-4">
+    <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+      {/* Logo top-right */}
+      <img
+        src={pdLogo}
+        alt="Pop Disrupt Logo"
+        className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 drop-shadow-2xl"
+      />
+
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background" />
       
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-6 animate-fade-in-up">
-        <img
-          src={pdLogo}
-          alt="Pop Disrupt Logo"
-          className="w-28 h-auto md:w-36 drop-shadow-2xl"
-        />
+      <div className="relative z-10 flex flex-col items-center gap-6 animate-fade-in-up px-4">
         <img
           src={pdTitle}
           alt="Pop Disrupt"
-          className="w-72 md:w-96 lg:w-[500px] h-auto drop-shadow-2xl"
+          className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl"
         />
         <p className="text-muted-foreground text-center max-w-lg text-base md:text-lg font-light tracking-wide mt-2">
           Flavors that don't exist yet. Until now.
