@@ -8,7 +8,7 @@ const FlavorGrid = () => {
   return (
     <section id="flavors" className="px-4 md:px-12 lg:px-20 py-16">
       <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-2">
-        Now Streaming
+        Trending Now
       </h2>
       <p className="text-muted-foreground mb-10 text-sm tracking-wide">8 FLAVORS. ZERO CHILL.</p>
 
