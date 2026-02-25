@@ -8,7 +8,7 @@ const HeroSection = () => {
       <img
         src={pdLogo}
         alt="Pop Disrupt Logo"
-        className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 drop-shadow-2xl mix-blend-screen"
+        className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 mix-blend-screen"
       />
 
       {/* Background glow */}
