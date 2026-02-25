@@ -8,7 +8,7 @@ const HeroSection = () => {
       <img
         src={pdLogo}
         alt="Pop Disrupt Logo"
-        className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 drop-shadow-2xl mix-blend-lighten"
+        className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 drop-shadow-2xl mix-blend-screen"
       />
 
       {/* Background glow */}
@@ -19,7 +19,7 @@ const HeroSection = () => {
         <img
           src={pdTitle}
           alt="Pop Disrupt"
-          className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl mix-blend-lighten"
+          className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl mix-blend-screen"
         />
         <p className="text-muted-foreground text-center max-w-lg text-base md:text-lg font-light tracking-wide mt-2">
           Flavors that don't exist yet. Until now.
