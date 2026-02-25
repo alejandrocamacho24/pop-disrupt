@@ -19,7 +19,7 @@ const HeroSection = () => {
         <img
           src={pdTitle}
           alt="Pop Disrupt"
-          className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl mix-blend-screen brightness-150"
+          className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl mix-blend-screen"
         />
         <p className="text-muted-foreground text-center max-w-lg text-base md:text-lg font-light tracking-wide mt-2">
           Flavors that don't exist yet. Until now.
