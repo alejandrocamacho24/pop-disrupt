@@ -70,6 +70,9 @@ const Admin = () => {
     );
   }
 
+  const ALLOWED_EMAILS = ["acamacho2494@gmail.com"];
+  const isAllowed = session && ALLOWED_EMAILS.includes(session.user.email ?? "");
+
   if (!session) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -89,6 +92,30 @@ const Admin = () => {
           <div>
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               ← Back to site
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAllowed) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center space-y-6">
+          <h1 className="font-display text-3xl md:text-4xl text-foreground">Access Denied</h1>
+          <p className="text-muted-foreground">
+            {session.user.email} is not authorized to access this dashboard.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={() => supabase.auth.signOut()}
+              className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold text-sm tracking-wider hover:bg-secondary/80 transition-colors"
+            >
+              Sign out
+            </button>
+            <Link to="/" className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors">
+              Back to site
             </Link>
           </div>
         </div>
