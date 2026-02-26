@@ -23,7 +23,7 @@ const FlavorGrid = () => {
             <img
               src={flavor.image}
               alt={flavor.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               loading="lazy"
             />
             {/* Hover overlay */}

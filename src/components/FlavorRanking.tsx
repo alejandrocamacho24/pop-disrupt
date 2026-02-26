@@ -69,7 +69,7 @@ const SortableFlavor = ({
 
         {/* Image */}
         <div className="w-16 h-10 md:w-24 md:h-14 rounded overflow-hidden shrink-0">
-          <img src={flavor.image} alt={flavor.name} className="w-full h-full object-cover" />
+          <img src={flavor.image} alt={flavor.name} className="w-full h-full object-contain" />
         </div>
 
         {/* Name */}
