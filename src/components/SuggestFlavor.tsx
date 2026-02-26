@@ -50,6 +50,17 @@ const SuggestFlavor = () => {
           SUBMIT YOUR FLAVOR
         </button>
       </form>
+
+      <div className="mt-12 flex justify-center">
+        <a
+          href="https://www.amazon.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-primary text-primary-foreground px-12 py-5 rounded-xl font-display text-2xl md:text-3xl tracking-wider hover:bg-primary/90 transition-colors text-center"
+        >
+          🛒 SHOP ON AMAZON
+        </a>
+      </div>
     </section>
   );
 };
