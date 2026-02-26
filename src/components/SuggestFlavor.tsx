@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { Sparkles, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const SuggestFlavor = () => {
   const [suggestion, setSuggestion] = useState("");
   const [name, setName] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!suggestion.trim()) return;
-    toast.success("Flavor suggestion submitted! 🍿", {
-      description: `"${suggestion}" — we'll consider it!`,
-    });
-    setSuggestion("");
-    setName("");
+    setSubmitting(true);
+    const { error } = await supabase
+      .from("flavor_suggestions")
+      .insert({ name: name.trim() || null, suggestion: suggestion.trim() });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Failed to submit suggestion. Please try again.");
+    } else {
+      toast.success("Flavor suggestion submitted! 🍿", {
+        description: `"${suggestion}" — we'll consider it!`,
+      });
+      setSuggestion("");
+      setName("");
+    }
   };
 
   return (
@@ -44,10 +56,11 @@ const SuggestFlavor = () => {
         />
         <button
           type="submit"
-          className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+          disabled={submitting}
+          className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
         >
           <Send size={16} />
-          SUBMIT YOUR FLAVOR
+          {submitting ? "SUBMITTING..." : "SUBMIT YOUR FLAVOR"}
         </button>
       </form>
 

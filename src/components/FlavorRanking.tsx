@@ -17,6 +17,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { flavors, type Flavor } from "@/data/flavors";
 import { GripVertical, MessageSquare, ChevronUp, ChevronDown, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface SortableFlavorProps {
   flavor: Flavor;
@@ -139,6 +140,7 @@ const FlavorRanking = () => {
   const [rankedFlavors, setRankedFlavors] = useState<Flavor[]>([...flavors]);
   const [comments, setComments] = useState<Record<string, string>>({});
   const [openComments, setOpenComments] = useState<Record<string, boolean>>({});
+  const [submitting, setSubmitting] = useState(false);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
@@ -195,13 +197,29 @@ const FlavorRanking = () => {
 
       <div className="max-w-2xl mx-auto mt-8 flex justify-center">
         <button
-          onClick={() => {
-            toast.success("Rankings submitted! Thanks for voting 🍿");
+          disabled={submitting}
+          onClick={async () => {
+            setSubmitting(true);
+            const rankings = rankedFlavors.map((f, i) => ({
+              flavor_id: f.id,
+              flavor_name: f.name,
+              rank: i + 1,
+              comment: comments[f.id] || "",
+            }));
+            const { error } = await supabase
+              .from("flavor_rankings")
+              .insert({ rankings });
+            setSubmitting(false);
+            if (error) {
+              toast.error("Failed to submit rankings. Please try again.");
+            } else {
+              toast.success("Rankings submitted! Thanks for voting 🍿");
+            }
           }}
-          className="bg-primary text-primary-foreground px-10 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors flex items-center gap-2"
+          className="bg-primary text-primary-foreground px-10 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors flex items-center gap-2 disabled:opacity-50"
         >
           <Send size={16} />
-          SUBMIT RANKINGS
+          {submitting ? "SUBMITTING..." : "SUBMIT RANKINGS"}
         </button>
       </div>
     </section>
