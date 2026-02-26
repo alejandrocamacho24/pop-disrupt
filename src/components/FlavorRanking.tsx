@@ -15,7 +15,8 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { flavors, type Flavor } from "@/data/flavors";
-import { GripVertical, MessageSquare, ChevronUp, ChevronDown } from "lucide-react";
+import { GripVertical, MessageSquare, ChevronUp, ChevronDown, Send } from "lucide-react";
+import { toast } from "sonner";
 
 interface SortableFlavorProps {
   flavor: Flavor;
@@ -190,6 +191,18 @@ const FlavorRanking = () => {
             ))}
           </SortableContext>
         </DndContext>
+      </div>
+
+      <div className="max-w-2xl mx-auto mt-8 flex justify-center">
+        <button
+          onClick={() => {
+            toast.success("Rankings submitted! Thanks for voting 🍿");
+          }}
+          className="bg-primary text-primary-foreground px-10 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors flex items-center gap-2"
+        >
+          <Send size={16} />
+          SUBMIT RANKINGS
+        </button>
       </div>
     </section>
   );
