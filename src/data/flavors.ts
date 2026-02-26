@@ -66,7 +66,7 @@ export const flavors: Flavor[] = [
     tags: ["Savory", "Bold"],
   },
   {
-    id: "tres-leches-dream",
+    id: "salted-butter-cinnamon-rolls",
     name: "Salted Butter Cinnamon Rolls",
     image: tresLechesDream,
     description: "Warm cinnamon roll glaze with a salted butter twist. Bakery-fresh flavor in every bite.",
