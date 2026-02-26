@@ -5,7 +5,7 @@ import grilledCheese from "@/assets/Grilled_Cheese.png";
 import koreanHotHoney from "@/assets/Korean_Hot_Honey.png";
 import mexicanStreetCorn from "@/assets/Mexican_Street_Corn.png";
 import tacoTruckTwist from "@/assets/Taco_Truck_Twist.png";
-import tresLechesDream from "@/assets/Tres_Leches_Dream.png";
+import SaltedButterCinnamonRolls from "@/assets/Tres_Leches_Dream.png";
 
 export interface Flavor {
   id: string;
