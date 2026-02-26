@@ -56,7 +56,7 @@ const SuggestFlavor = () => {
           href="https://www.amazon.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-primary text-primary-foreground px-12 py-5 rounded-xl font-display text-2xl md:text-3xl tracking-wider hover:bg-primary/90 transition-colors text-center"
+          className="inline-block bg-[#FF9900] text-black px-12 py-5 rounded-xl font-display text-2xl md:text-3xl tracking-wider hover:bg-[#e68a00] transition-colors text-center"
         >
           🛒 SHOP ON AMAZON
         </a>
