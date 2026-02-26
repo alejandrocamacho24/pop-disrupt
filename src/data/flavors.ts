@@ -67,9 +67,9 @@ export const flavors: Flavor[] = [
   },
   {
     id: "tres-leches-dream",
-    name: "Tres Leches Dream",
+    name: "Salted Butter Cinnamon Rolls",
     image: tresLechesDream,
-    description: "Three-milk sweetness with a hint of cinnamon. Dessert-inspired and dreamy.",
-    tags: ["Sweet", "Creamy"],
+    description: "Warm cinnamon roll glaze with a salted butter twist. Bakery-fresh flavor in every bite.",
+    tags: ["Sweet", "Bakery"],
   },
 ];
