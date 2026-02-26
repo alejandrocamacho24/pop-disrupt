@@ -22,7 +22,7 @@ const FlavorModal = ({ flavor, onClose }: FlavorModalProps) => {
         </button>
 
         <div className="aspect-video w-full">
-          <img src={flavor.image} alt={flavor.name} className="w-full h-full object-cover" />
+          <img src={flavor.image} alt={flavor.name} className="w-full h-full object-contain" />
         </div>
 
         <div className="p-6">
