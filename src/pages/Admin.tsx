@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, RefreshCw } from "lucide-react";
+import { lovable } from "@/integrations/lovable/index";
+import { ArrowLeft, RefreshCw, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
+import type { Session } from "@supabase/supabase-js";
 
 interface RankingRow {
   id: string;
@@ -21,6 +23,20 @@ const Admin = () => {
   const [suggestions, setSuggestions] = useState<SuggestionRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<"rankings" | "suggestions">("rankings");
+  const [session, setSession] = useState<Session | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setAuthLoading(false);
+    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setAuthLoading(false);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   const fetchData = async () => {
     setLoading(true);
@@ -34,8 +50,8 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (session) fetchData();
+  }, [session]);
 
   const formatDate = (d: string) =>
     new Date(d).toLocaleDateString("en-US", {
@@ -45,6 +61,40 @@ const Admin = () => {
       hour: "numeric",
       minute: "2-digit",
     });
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center space-y-6">
+          <h1 className="font-display text-3xl md:text-4xl text-foreground">Admin Access</h1>
+          <p className="text-muted-foreground">Sign in with Google to access the dashboard.</p>
+          <button
+            onClick={async () => {
+              await lovable.auth.signInWithOAuth("google", {
+                redirect_uri: window.location.origin + "/admin",
+              });
+            }}
+            className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors"
+          >
+            Sign in with Google
+          </button>
+          <div>
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              ← Back to site
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-8 lg:p-12">
@@ -56,14 +106,23 @@ const Admin = () => {
             </Link>
             <h1 className="font-display text-3xl md:text-4xl">Admin Dashboard</h1>
           </div>
-          <button
-            onClick={fetchData}
-            disabled={loading}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"
-          >
-            <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-            Refresh
-          </button>
+          <div className="flex items-center gap-4">
+            <span className="text-xs text-muted-foreground hidden md:block">{session.user.email}</span>
+            <button
+              onClick={fetchData}
+              disabled={loading}
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"
+            >
+              <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+              Refresh
+            </button>
+            <button
+              onClick={() => supabase.auth.signOut()}
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <LogOut size={16} />
+            </button>
+          </div>
         </div>
 
         {/* Tabs */}
