@@ -12,8 +12,7 @@ const Index = () => {
       <FlavorGrid />
       <FlavorRanking subtitle="WHICH ONE ARE YOU MOST EXCITED TO TRY?" />
       <SuggestFlavor />
-      <Footer />
-      <div className="flex justify-end px-6 pb-6">
+      <div className="flex justify-end px-4 md:px-12 lg:px-20 py-6">
         <a
           href="https://www.instagram.com/popdisrupt"
           target="_blank"
@@ -24,6 +23,7 @@ const Index = () => {
           @popdisrupt
         </a>
       </div>
+      <Footer />
     </div>
   );
 };
