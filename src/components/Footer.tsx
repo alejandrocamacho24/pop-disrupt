@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import pdLogo from "@/assets/pd_logo.png";
 
 const Footer = () => {
@@ -24,6 +25,15 @@ const Footer = () => {
             Rank
           </a>
         </div>
+        <a
+          href="https://www.instagram.com/popdisrupt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Instagram size={20} />
+          Follow us @popdisrupt
+        </a>
         <p className="text-xs text-muted-foreground">
           © 2025 Pop Disrupt. All rights reserved.
         </p>
