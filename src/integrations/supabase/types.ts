@@ -19,16 +19,19 @@ export type Database = {
           created_at: string
           id: string
           rankings: Json
+          source: string
         }
         Insert: {
           created_at?: string
           id?: string
           rankings: Json
+          source?: string
         }
         Update: {
           created_at?: string
           id?: string
           rankings?: Json
+          source?: string
         }
         Relationships: []
       }

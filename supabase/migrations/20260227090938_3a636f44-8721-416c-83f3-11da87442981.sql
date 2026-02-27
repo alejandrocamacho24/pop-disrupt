@@ -1,0 +1,1 @@
+ALTER TABLE public.flavor_rankings ADD COLUMN source text NOT NULL DEFAULT 'main';

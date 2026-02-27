@@ -138,9 +138,10 @@ const SortableFlavor = ({
 
 interface FlavorRankingProps {
   subtitle?: string;
+  source?: string;
 }
 
-const FlavorRanking = ({ subtitle }: FlavorRankingProps = {}) => {
+const FlavorRanking = ({ subtitle, source = "main" }: FlavorRankingProps) => {
   const [rankedFlavors, setRankedFlavors] = useState<Flavor[]>([...flavors]);
   const [comments, setComments] = useState<Record<string, string>>({});
   const [openComments, setOpenComments] = useState<Record<string, boolean>>({});
@@ -217,7 +218,7 @@ const FlavorRanking = ({ subtitle }: FlavorRankingProps = {}) => {
             }));
             const { error } = await supabase
               .from("flavor_rankings")
-              .insert({ rankings });
+              .insert({ rankings, source });
             setSubmitting(false);
             if (error) {
               toast.error("Failed to submit rankings. Please try again.");
