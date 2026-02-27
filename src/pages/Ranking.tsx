@@ -33,6 +33,12 @@ const Ranking = () => {
             >
               RANK THEM
             </a>
+            <a
+              href="#suggest"
+              className="border border-muted-foreground/30 text-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-secondary transition-colors"
+            >
+              PITCH A FLAVOR
+            </a>
           </div>
         </div>
 
