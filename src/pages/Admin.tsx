@@ -42,8 +42,8 @@ const Admin = () => {
   const fetchData = async () => {
     setLoading(true);
     const [preRes, postRes, sugRes] = await Promise.all([
-      supabase.from("pre_flavor_rankings").select("*").order("created_at", { ascending: false }),
-      supabase.from("post_flavor_rankings").select("*").order("created_at", { ascending: false }),
+      supabase.from("pre_flavor_rankings" as any).select("*").order("created_at", { ascending: false }),
+      supabase.from("post_flavor_rankings" as any).select("*").order("created_at", { ascending: false }),
       supabase.from("flavor_suggestions").select("*").order("created_at", { ascending: false }),
     ]);
     if (preRes.data) setPreRankings(preRes.data as unknown as RankingRow[]);

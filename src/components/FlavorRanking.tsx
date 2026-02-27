@@ -218,8 +218,8 @@ const FlavorRanking = ({ subtitle, source = "main" }: FlavorRankingProps) => {
             }));
             const tableName = source === "ranking" ? "post_flavor_rankings" : "pre_flavor_rankings";
             const { error } = await supabase
-              .from(tableName)
-              .insert({ rankings });
+              .from(tableName as any)
+              .insert({ rankings } as any);
             setSubmitting(false);
             if (error) {
               toast.error("Failed to submit rankings. Please try again.");
