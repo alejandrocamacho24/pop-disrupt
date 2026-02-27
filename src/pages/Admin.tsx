@@ -9,7 +9,6 @@ interface RankingRow {
   id: string;
   rankings: { flavor_id: string; flavor_name: string; rank: number; comment: string }[];
   created_at: string;
-  source: string;
 }
 
 interface SuggestionRow {
@@ -20,7 +19,8 @@ interface SuggestionRow {
 }
 
 const Admin = () => {
-  const [rankings, setRankings] = useState<RankingRow[]>([]);
+  const [preRankings, setPreRankings] = useState<RankingRow[]>([]);
+  const [postRankings, setPostRankings] = useState<RankingRow[]>([]);
   const [suggestions, setSuggestions] = useState<SuggestionRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<"pre" | "post" | "suggestions">("pre");
@@ -41,11 +41,13 @@ const Admin = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const [rankRes, sugRes] = await Promise.all([
-      supabase.from("flavor_rankings").select("*").order("created_at", { ascending: false }),
+    const [preRes, postRes, sugRes] = await Promise.all([
+      supabase.from("pre_flavor_rankings").select("*").order("created_at", { ascending: false }),
+      supabase.from("post_flavor_rankings").select("*").order("created_at", { ascending: false }),
       supabase.from("flavor_suggestions").select("*").order("created_at", { ascending: false }),
     ]);
-    if (rankRes.data) setRankings(rankRes.data as unknown as RankingRow[]);
+    if (preRes.data) setPreRankings(preRes.data as unknown as RankingRow[]);
+    if (postRes.data) setPostRankings(postRes.data as unknown as RankingRow[]);
     if (sugRes.data) setSuggestions(sugRes.data as unknown as SuggestionRow[]);
     setLoading(false);
   };
@@ -63,8 +65,6 @@ const Admin = () => {
       minute: "2-digit",
     });
 
-  const preRankings = rankings.filter((r) => r.source === "main");
-  const postRankings = rankings.filter((r) => r.source === "ranking");
 
   if (authLoading) {
     return (

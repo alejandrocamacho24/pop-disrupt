@@ -56,6 +56,42 @@ export type Database = {
         }
         Relationships: []
       }
+      post_flavor_rankings: {
+        Row: {
+          created_at: string
+          id: string
+          rankings: Json
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          rankings: Json
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          rankings?: Json
+        }
+        Relationships: []
+      }
+      pre_flavor_rankings: {
+        Row: {
+          created_at: string
+          id: string
+          rankings: Json
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          rankings: Json
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          rankings?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
