@@ -1,9 +1,44 @@
 import FlavorRanking from "@/components/FlavorRanking";
 import SuggestFlavor from "@/components/SuggestFlavor";
+import pdLogo from "@/assets/pd_logo.png";
+import pdTitle from "@/assets/Pop_Disrupt_title_transparent.png";
 
 const Ranking = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Hero – same as main page but with only a rank button */}
+      <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+        <img
+          src={pdLogo}
+          alt="Pop Disrupt Logo"
+          className="absolute top-4 right-4 md:top-6 md:right-8 w-16 md:w-20 h-auto z-20 mix-blend-screen"
+          style={{ clipPath: 'inset(0 0 0 20%)' }}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background" />
+
+        <div className="relative z-10 flex flex-col items-center gap-6 animate-fade-in-up px-4">
+          <img
+            src={pdTitle}
+            alt="Pop Disrupt"
+            className="w-[90vw] md:w-[70vw] lg:w-[700px] h-auto drop-shadow-2xl"
+          />
+          <p className="text-muted-foreground text-center max-w-lg text-base md:text-lg font-light tracking-wide mt-2">
+            Flavors that don't exist yet. Until now.
+          </p>
+          <div className="flex gap-3 mt-4">
+            <a
+              href="#rank"
+              className="bg-primary text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors"
+            >
+              RANK THEM
+            </a>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
       <FlavorRanking />
       <SuggestFlavor />
     </div>
