@@ -216,10 +216,16 @@ const FlavorRanking = ({ subtitle, source = "main" }: FlavorRankingProps) => {
               rank: i + 1,
               comment: comments[f.id] || "",
             }));
+            const rankColumns: Record<string, string> = {};
+            rankedFlavors.forEach((f, i) => {
+              const r = i + 1;
+              rankColumns[`rank_${r}_name`] = f.name;
+              rankColumns[`rank_${r}_comment`] = comments[f.id] || "";
+            });
             const tableName = source === "ranking" ? "post_flavor_rankings" : "pre_flavor_rankings";
             const { error } = await supabase
               .from(tableName as any)
-              .insert({ rankings } as any);
+              .insert({ rankings, ...rankColumns } as any);
             setSubmitting(false);
             if (error) {
               toast.error("Failed to submit rankings. Please try again.");

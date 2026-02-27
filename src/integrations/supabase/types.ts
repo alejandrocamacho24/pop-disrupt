@@ -39,16 +39,64 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          rank_1_comment: string | null
+          rank_1_name: string | null
+          rank_2_comment: string | null
+          rank_2_name: string | null
+          rank_3_comment: string | null
+          rank_3_name: string | null
+          rank_4_comment: string | null
+          rank_4_name: string | null
+          rank_5_comment: string | null
+          rank_5_name: string | null
+          rank_6_comment: string | null
+          rank_6_name: string | null
+          rank_7_comment: string | null
+          rank_7_name: string | null
+          rank_8_comment: string | null
+          rank_8_name: string | null
           rankings: Json
         }
         Insert: {
           created_at?: string
           id?: string
+          rank_1_comment?: string | null
+          rank_1_name?: string | null
+          rank_2_comment?: string | null
+          rank_2_name?: string | null
+          rank_3_comment?: string | null
+          rank_3_name?: string | null
+          rank_4_comment?: string | null
+          rank_4_name?: string | null
+          rank_5_comment?: string | null
+          rank_5_name?: string | null
+          rank_6_comment?: string | null
+          rank_6_name?: string | null
+          rank_7_comment?: string | null
+          rank_7_name?: string | null
+          rank_8_comment?: string | null
+          rank_8_name?: string | null
           rankings: Json
         }
         Update: {
           created_at?: string
           id?: string
+          rank_1_comment?: string | null
+          rank_1_name?: string | null
+          rank_2_comment?: string | null
+          rank_2_name?: string | null
+          rank_3_comment?: string | null
+          rank_3_name?: string | null
+          rank_4_comment?: string | null
+          rank_4_name?: string | null
+          rank_5_comment?: string | null
+          rank_5_name?: string | null
+          rank_6_comment?: string | null
+          rank_6_name?: string | null
+          rank_7_comment?: string | null
+          rank_7_name?: string | null
+          rank_8_comment?: string | null
+          rank_8_name?: string | null
           rankings?: Json
         }
         Relationships: []
@@ -57,16 +105,64 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          rank_1_comment: string | null
+          rank_1_name: string | null
+          rank_2_comment: string | null
+          rank_2_name: string | null
+          rank_3_comment: string | null
+          rank_3_name: string | null
+          rank_4_comment: string | null
+          rank_4_name: string | null
+          rank_5_comment: string | null
+          rank_5_name: string | null
+          rank_6_comment: string | null
+          rank_6_name: string | null
+          rank_7_comment: string | null
+          rank_7_name: string | null
+          rank_8_comment: string | null
+          rank_8_name: string | null
           rankings: Json
         }
         Insert: {
           created_at?: string
           id?: string
+          rank_1_comment?: string | null
+          rank_1_name?: string | null
+          rank_2_comment?: string | null
+          rank_2_name?: string | null
+          rank_3_comment?: string | null
+          rank_3_name?: string | null
+          rank_4_comment?: string | null
+          rank_4_name?: string | null
+          rank_5_comment?: string | null
+          rank_5_name?: string | null
+          rank_6_comment?: string | null
+          rank_6_name?: string | null
+          rank_7_comment?: string | null
+          rank_7_name?: string | null
+          rank_8_comment?: string | null
+          rank_8_name?: string | null
           rankings: Json
         }
         Update: {
           created_at?: string
           id?: string
+          rank_1_comment?: string | null
+          rank_1_name?: string | null
+          rank_2_comment?: string | null
+          rank_2_name?: string | null
+          rank_3_comment?: string | null
+          rank_3_name?: string | null
+          rank_4_comment?: string | null
+          rank_4_name?: string | null
+          rank_5_comment?: string | null
+          rank_5_name?: string | null
+          rank_6_comment?: string | null
+          rank_6_name?: string | null
+          rank_7_comment?: string | null
+          rank_7_name?: string | null
+          rank_8_comment?: string | null
+          rank_8_name?: string | null
           rankings?: Json
         }
         Relationships: []
