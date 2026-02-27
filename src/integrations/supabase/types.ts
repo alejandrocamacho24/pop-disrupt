@@ -14,27 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      flavor_rankings: {
-        Row: {
-          created_at: string
-          id: string
-          rankings: Json
-          source: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          rankings: Json
-          source?: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          rankings?: Json
-          source?: string
-        }
-        Relationships: []
-      }
       flavor_suggestions: {
         Row: {
           created_at: string
