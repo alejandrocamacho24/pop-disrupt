@@ -9,6 +9,7 @@ interface RankingRow {
   id: string;
   rankings: { flavor_id: string; flavor_name: string; rank: number; comment: string }[];
   created_at: string;
+  source: string;
 }
 
 interface SuggestionRow {
@@ -22,7 +23,7 @@ const Admin = () => {
   const [rankings, setRankings] = useState<RankingRow[]>([]);
   const [suggestions, setSuggestions] = useState<SuggestionRow[]>([]);
   const [loading, setLoading] = useState(true);
-  const [tab, setTab] = useState<"rankings" | "suggestions">("rankings");
+  const [tab, setTab] = useState<"pre" | "post" | "suggestions">("pre");
   const [session, setSession] = useState<Session | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
 
@@ -61,6 +62,9 @@ const Admin = () => {
       hour: "numeric",
       minute: "2-digit",
     });
+
+  const preRankings = rankings.filter((r) => r.source === "main");
+  const postRankings = rankings.filter((r) => r.source === "ranking");
 
   if (authLoading) {
     return (
@@ -123,6 +127,39 @@ const Admin = () => {
     );
   }
 
+  const renderRankings = (items: RankingRow[]) => (
+    <div className="space-y-4">
+      {items.length === 0 ? (
+        <p className="text-muted-foreground">No ranking submissions yet.</p>
+      ) : (
+        items.map((r) => (
+          <div key={r.id} className="bg-card border border-border rounded-lg p-4 md:p-6">
+            <p className="text-xs text-muted-foreground mb-3">{formatDate(r.created_at)}</p>
+            <div className="space-y-1.5">
+              {r.rankings
+                .sort((a, b) => a.rank - b.rank)
+                .map((item) => (
+                  <div key={item.flavor_id} className="flex items-start gap-3">
+                    <span className="w-6 text-right font-display text-primary shrink-0">
+                      {item.rank}.
+                    </span>
+                    <div>
+                      <span className="font-medium">{item.flavor_name}</span>
+                      {item.comment && (
+                        <p className="text-sm text-muted-foreground italic mt-0.5">
+                          "{item.comment}"
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-8 lg:p-12">
       <div className="max-w-5xl mx-auto">
@@ -155,52 +192,31 @@ const Admin = () => {
         {/* Tabs */}
         <div className="flex gap-1 mb-6 bg-secondary rounded-lg p-1 w-fit">
           <button
-            onClick={() => setTab("rankings")}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${tab === "rankings" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+            onClick={() => setTab("pre")}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${tab === "pre" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
           >
-            Rankings ({rankings.length})
+            Pre Ranking ({preRankings.length})
+          </button>
+          <button
+            onClick={() => setTab("post")}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${tab === "post" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            Post Ranking ({postRankings.length})
           </button>
           <button
             onClick={() => setTab("suggestions")}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${tab === "suggestions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
           >
-            Suggestions ({suggestions.length})
+            Pitch a Flavor ({suggestions.length})
           </button>
         </div>
 
         {loading ? (
           <p className="text-muted-foreground">Loading...</p>
-        ) : tab === "rankings" ? (
-          <div className="space-y-4">
-            {rankings.length === 0 ? (
-              <p className="text-muted-foreground">No ranking submissions yet.</p>
-            ) : (
-              rankings.map((r) => (
-                <div key={r.id} className="bg-card border border-border rounded-lg p-4 md:p-6">
-                  <p className="text-xs text-muted-foreground mb-3">{formatDate(r.created_at)}</p>
-                  <div className="space-y-1.5">
-                    {r.rankings
-                      .sort((a, b) => a.rank - b.rank)
-                      .map((item) => (
-                        <div key={item.flavor_id} className="flex items-start gap-3">
-                          <span className="w-6 text-right font-display text-primary shrink-0">
-                            {item.rank}.
-                          </span>
-                          <div>
-                            <span className="font-medium">{item.flavor_name}</span>
-                            {item.comment && (
-                              <p className="text-sm text-muted-foreground italic mt-0.5">
-                                "{item.comment}"
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+        ) : tab === "pre" ? (
+          renderRankings(preRankings)
+        ) : tab === "post" ? (
+          renderRankings(postRankings)
         ) : (
           <div className="space-y-3">
             {suggestions.length === 0 ? (
