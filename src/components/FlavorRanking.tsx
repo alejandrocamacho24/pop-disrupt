@@ -167,7 +167,10 @@ const FlavorRanking = () => {
       <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-2">
         Rank the Drop
       </h2>
-      <p className="text-muted-foreground mb-10 text-sm tracking-wide">
+      <p className="text-muted-foreground mb-2 text-sm tracking-wide">
+        WHICH ONE ARE YOU MOST EXCITED TO TRY?
+      </p>
+      <p className="text-muted-foreground mb-10 text-xs tracking-wide">
         DRAG OR TAP ARROWS TO RANK YOUR FAVORITES FROM #1 TO #8
       </p>
 
