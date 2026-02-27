@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import FlavorGrid from "@/components/FlavorGrid";
-import FlavorRanking from "@/components/FlavorRanking";
 import SuggestFlavor from "@/components/SuggestFlavor";
 import Footer from "@/components/Footer";
 
@@ -9,7 +8,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <HeroSection />
       <FlavorGrid />
-      <FlavorRanking />
       <SuggestFlavor />
       <Footer />
     </div>
