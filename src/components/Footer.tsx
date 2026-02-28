@@ -35,7 +35,7 @@ const Footer = () => {
           Follow us @popdisrupt
         </a>
         <p className="text-xs text-muted-foreground">
-          © 2025 Pop Disrupt. All rights reserved.
+          © 2026 Pop Disrupt. All rights reserved.
         </p>
       </div>
     </footer>
