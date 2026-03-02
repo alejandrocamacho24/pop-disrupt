@@ -49,7 +49,7 @@ const Ranking = () => {
       <FlavorRanking source="ranking" />
       <SuggestFlavor />
       <div className="flex items-center justify-between px-4 md:px-12 lg:px-20 py-6">
-        <span className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
+        <span className="flex items-center gap-2 text-base md:text-lg text-muted-foreground font-semibold">
           🇺🇸 Made in the USA
         </span>
         <a
