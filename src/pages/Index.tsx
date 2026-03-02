@@ -12,7 +12,10 @@ const Index = () => {
       <FlavorGrid />
       <FlavorRanking subtitle="WHICH ONE ARE YOU MOST EXCITED TO TRY?" />
       <SuggestFlavor />
-      <div className="flex justify-end px-4 md:px-12 lg:px-20 py-6">
+      <div className="flex items-center justify-between px-4 md:px-12 lg:px-20 py-6">
+        <span className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
+          🇺🇸 Made in the USA
+        </span>
         <a
           href="https://www.instagram.com/popdisrupt"
           target="_blank"
