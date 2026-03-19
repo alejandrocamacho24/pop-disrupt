@@ -55,14 +55,24 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.05em;
+  }
+
+  img {
+    transform: translateZ(0);
   }
 }
 
@@ -80,10 +90,13 @@
 
   .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   .card-hover:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
     box-shadow: 0 8px 30px hsl(0 0% 0% / 0.5);
   }
 
