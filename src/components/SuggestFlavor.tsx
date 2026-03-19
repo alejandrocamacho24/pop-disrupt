@@ -50,7 +50,7 @@ const SuggestFlavor = () => {
           value={suggestion}
           onChange={(e) => setSuggestion(e.target.value)}
           placeholder="Describe your dream popcorn flavor..."
-          className="w-full bg-card border border-border rounded-lg px-4 py-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+          className="w-full bg-card border border-border rounded-lg px-4 py-4 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none"
           rows={4}
           required
         />
