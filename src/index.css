@@ -55,14 +55,24 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.05em;
+  }
+
+  img {
+    transform: translateZ(0);
   }
 }
 
