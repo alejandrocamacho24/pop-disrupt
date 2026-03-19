@@ -90,10 +90,13 @@
 
   .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   .card-hover:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
     box-shadow: 0 8px 30px hsl(0 0% 0% / 0.5);
   }
 
