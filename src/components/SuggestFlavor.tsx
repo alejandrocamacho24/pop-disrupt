@@ -66,7 +66,7 @@ const SuggestFlavor = () => {
 
       <div className="mt-12 flex justify-center">
         <a
-          href="https://www.amazon.com"
+          href="https://www.amazon.com/dp/B0GTB3LW96"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-[#FF9900] text-black px-12 py-5 rounded-xl font-display text-2xl md:text-3xl tracking-wider hover:bg-[#e68a00] transition-colors text-center"
