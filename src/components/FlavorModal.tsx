@@ -36,7 +36,7 @@ const FlavorModal = ({ flavor, onClose }: FlavorModalProps) => {
           </div>
           <p className="text-muted-foreground leading-relaxed">{flavor.description}</p>
           <a
-            href="https://www.amazon.com"
+            href="https://www.amazon.com/dp/B0GTB3LW96"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-6 bg-primary text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wider hover:bg-primary/90 transition-colors"
