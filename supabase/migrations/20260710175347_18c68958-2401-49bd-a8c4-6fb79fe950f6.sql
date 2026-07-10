@@ -1,0 +1,1 @@
+ALTER TABLE public.pre_flavor_rankings ADD COLUMN IF NOT EXISTS name text; ALTER TABLE public.post_flavor_rankings ADD COLUMN IF NOT EXISTS name text;

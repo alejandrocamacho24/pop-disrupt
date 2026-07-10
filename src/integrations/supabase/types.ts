@@ -39,6 +39,7 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          name: string | null
           rank_1_comment: string | null
           rank_1_name: string | null
           rank_2_comment: string | null
@@ -60,6 +61,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
+          name?: string | null
           rank_1_comment?: string | null
           rank_1_name?: string | null
           rank_2_comment?: string | null
@@ -81,6 +83,7 @@ export type Database = {
         Update: {
           created_at?: string
           id?: string
+          name?: string | null
           rank_1_comment?: string | null
           rank_1_name?: string | null
           rank_2_comment?: string | null
@@ -105,6 +108,7 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          name: string | null
           rank_1_comment: string | null
           rank_1_name: string | null
           rank_2_comment: string | null
@@ -126,6 +130,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
+          name?: string | null
           rank_1_comment?: string | null
           rank_1_name?: string | null
           rank_2_comment?: string | null
@@ -147,6 +152,7 @@ export type Database = {
         Update: {
           created_at?: string
           id?: string
+          name?: string | null
           rank_1_comment?: string | null
           rank_1_name?: string | null
           rank_2_comment?: string | null
