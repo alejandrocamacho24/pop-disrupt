@@ -146,6 +146,7 @@ const FlavorRanking = ({ subtitle, source = "main" }: FlavorRankingProps) => {
   const [comments, setComments] = useState<Record<string, string>>({});
   const [openComments, setOpenComments] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [name, setName] = useState("");
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
