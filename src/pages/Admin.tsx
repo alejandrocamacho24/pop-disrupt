@@ -9,6 +9,7 @@ interface RankingRow {
   id: string;
   rankings: { flavor_id: string; flavor_name: string; rank: number; comment: string }[];
   created_at: string;
+  name: string | null;
 }
 
 interface SuggestionRow {
