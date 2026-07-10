@@ -9,6 +9,7 @@ interface RankingRow {
   id: string;
   rankings: { flavor_id: string; flavor_name: string; rank: number; comment: string }[];
   created_at: string;
+  name: string | null;
 }
 
 interface SuggestionRow {
@@ -134,7 +135,12 @@ const Admin = () => {
       ) : (
         items.map((r) => (
           <div key={r.id} className="bg-card border border-border rounded-lg p-4 md:p-6">
-            <p className="text-xs text-muted-foreground mb-3">{formatDate(r.created_at)}</p>
+            <div className="flex items-start justify-between gap-4 mb-3">
+              <p className="font-medium text-sm">
+                {r.name?.trim() ? r.name : <span className="text-muted-foreground italic font-normal">Anonymous</span>}
+              </p>
+              <p className="text-xs text-muted-foreground shrink-0">{formatDate(r.created_at)}</p>
+            </div>
             <div className="space-y-1.5">
               {r.rankings
                 .sort((a, b) => a.rank - b.rank)
