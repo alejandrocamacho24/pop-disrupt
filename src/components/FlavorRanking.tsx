@@ -206,6 +206,22 @@ const FlavorRanking = ({ subtitle, source = "main" }: FlavorRankingProps) => {
         </DndContext>
       </div>
 
+      <div className="max-w-2xl mx-auto mt-8">
+        <label htmlFor={`ranker-name-${source}`} className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+          Your name <span className="normal-case tracking-normal">(optional)</span>
+        </label>
+        <input
+          id={`ranker-name-${source}`}
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Add your name so we know who ranked"
+          autoComplete="name"
+          maxLength={80}
+          className="w-full bg-secondary border border-border rounded-md px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+      </div>
+
       <div className="max-w-2xl mx-auto mt-8 flex justify-center">
         <button
           disabled={submitting}
