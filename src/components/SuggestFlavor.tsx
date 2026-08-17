@@ -90,7 +90,7 @@ const SuggestFlavor = () => {
             {/* pointer */}
             <span className="absolute -top-2 left-1/2 -translate-x-1/2 z-20 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[16px] border-l-transparent border-r-transparent border-t-primary" />
             <span
-              className="block w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-primary shadow-2xl transition-transform duration-[2000ms] ease-[cubic-bezier(0.17,0.67,0.15,1)]"
+              className="block w-28 h-28 md:w-36 md:h-36 rounded-full border-2 border-primary shadow-2xl transition-transform duration-[2000ms] ease-[cubic-bezier(0.17,0.67,0.15,1)]"
               style={{
                 transform: `rotate(${rotation}deg)`,
                 background:
