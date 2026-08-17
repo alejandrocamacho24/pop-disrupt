@@ -45,7 +45,7 @@ const SuggestFlavor = () => {
 
   return (
     <section id="suggest" className="px-4 md:px-12 lg:px-20 py-16">
-      <div className="mb-12 flex flex-col items-center">
+      <div className="-mt-2 mb-14 flex flex-col items-center">
         <button
           type="button"
           onClick={handleSpin}
