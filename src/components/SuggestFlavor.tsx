@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, Send, Film } from "lucide-react";
+import { Sparkles, Send } from "lucide-react";
+import movieMoodHero from "@/assets/movie-mood-hero.webp";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
