@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Sparkles, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Sparkles, Send, Film } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -64,7 +65,14 @@ const SuggestFlavor = () => {
         </button>
       </form>
 
-      <div className="mt-12 flex justify-center">
+      <div className="mt-12 flex flex-col items-center gap-4">
+        <Link
+          to="/moviepick"
+          className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 md:px-12 py-5 rounded-xl font-display text-2xl md:text-3xl tracking-wider hover:bg-primary/90 transition-colors text-center"
+        >
+          <Film size={26} />
+          TONIGHT'S FLAVOR PICKS THE MOVIE
+        </Link>
         <a
           href="https://www.amazon.com/dp/B0GTB3LW96"
           target="_blank"
