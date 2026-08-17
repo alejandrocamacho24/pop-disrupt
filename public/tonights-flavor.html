@@ -197,9 +197,9 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid rgba(255,243,214,.1
 
 <div class="wrap">
   <div class="mast">
-    <b>Pop Disrupt</b>
-    <span id="mastR">8 flavors · 192 picks</span>
+    <img src="/pd_logo.png" alt="Pop Disrupt" style="height:44px;width:auto;object-fit:contain;mix-blend-mode:screen">
   </div>
+
 
   <!-- ============ PICK ============ -->
   <section class="screen on" id="s-pick" aria-labelledby="h-pick">
@@ -984,10 +984,10 @@ $('#tSnd').addEventListener('click',e=>{
 function countPicks(){
   let n=0, all=0;
   FLAVORS.forEach(f=>f.segments.forEach(s=>s.films.forEach(m=>{ all++; if(!S.family||m.fam===1) n++; })));
-  $('#mastR').textContent='8 flavors · '+n+' picks';
   $('#optNote').textContent = S.family
     ? 'Family-friendly is on: '+n+' of '+all+' films are in play. Horror, R-rated comedies and adult dramas are held back, and any wedge left with nothing to give is greyed out.'
-    : 'All '+all+' films are in play, adult titles included. Switch on Family-friendly to hold back horror, R-rated comedies and adult dramas.';
+    : 'Switch on Family-friendly to hold back horror, R-rated comedies and adult dramas.';
+
 }
 
 /* ============================================================
