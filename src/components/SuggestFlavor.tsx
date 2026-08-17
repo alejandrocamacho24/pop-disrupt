@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Sparkles, Send, Film } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -7,6 +7,19 @@ import { supabase } from "@/integrations/supabase/client";
 const SuggestFlavor = () => {
   const [suggestion, setSuggestion] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
+  const [rotation, setRotation] = useState(0);
+  const [spinning, setSpinning] = useState(false);
+
+  const handleSpin = () => {
+    if (spinning) return;
+    setSpinning(true);
+    setRotation((r) => r + 1440 + Math.floor(Math.random() * 360));
+    setTimeout(() => {
+      setSpinning(false);
+      navigate("/moviepick");
+    }, 2200);
+  };
 
   const [submitting, setSubmitting] = useState(false);
 
