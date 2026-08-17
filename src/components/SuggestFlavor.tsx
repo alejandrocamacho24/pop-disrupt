@@ -97,15 +97,15 @@ const SuggestFlavor = () => {
                   "conic-gradient(hsl(var(--primary)) 0deg 45deg, hsl(var(--card)) 45deg 90deg, hsl(var(--primary)) 90deg 135deg, hsl(var(--card)) 135deg 180deg, hsl(var(--primary)) 180deg 225deg, hsl(var(--card)) 225deg 270deg, hsl(var(--primary)) 270deg 315deg, hsl(var(--card)) 315deg 360deg)",
               }}
             />
-            <span className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 px-6 text-center">
+            <span className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-0.5 px-3 text-center">
               <img
                 src={movieMoodHero}
                 alt="Popcorn character sipping hot chocolate"
-                className={`w-16 md:w-20 h-auto object-contain drop-shadow-lg ${
+                className={`w-8 md:w-10 h-auto object-contain drop-shadow-lg ${
                   spinning ? "animate-pulse" : "group-hover:scale-110 transition-transform"
                 }`}
               />
-              <span className="font-display text-xl md:text-2xl tracking-wider text-foreground leading-none">
+              <span className="font-display text-sm md:text-base tracking-wider text-foreground leading-none">
                 {spinning ? "SPINNING..." : "MOVIE PICK MOOD"}
               </span>
             </span>
